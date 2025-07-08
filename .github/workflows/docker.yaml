@@ -48,8 +48,7 @@ jobs:
         id: docker-meta
         uses: docker/metadata-action@v5
         with:
-          images: |
-            ${{ github.repository }}
+          images:
             ghcr.io/${{ github.repository }}
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}

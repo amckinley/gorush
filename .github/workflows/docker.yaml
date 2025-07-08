@@ -25,6 +25,7 @@ jobs:
           go-version-file: go.mod
           check-latest: true
 
+
       - name: Build binary
         run: |
           make build_linux_amd64

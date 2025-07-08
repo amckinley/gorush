@@ -28,6 +28,9 @@ import (
 	"github.com/rs/zerolog/log"
 	"github.com/thoas/stats"
 	"golang.org/x/crypto/acme/autocert"
+
+	// enable pprof
+	"github.com/gin-contrib/pprof"
 )
 
 var doOnce sync.Once
@@ -195,6 +198,7 @@ func routerEngine(cfg *config.ConfYaml, q *queue.Queue) *gin.Engine {
 	gin.SetMode(cfg.Core.Mode)
 
 	r := gin.New()
+	pprof.Register(r)
 
 	// Global middleware
 	r.Use(logger.SetLogger(
